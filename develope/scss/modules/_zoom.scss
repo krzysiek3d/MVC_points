@@ -1,0 +1,59 @@
+.zoom {
+    position: absolute;
+    width: 30px;
+    height: 250px;
+    top: 10px;
+    right: 13px;
+    @include element ('btn') {
+        @include button-primary($width: 30px, $height: 30px, $delay: 0.3s);
+        @include modifier ('green') {
+            background-color: $green;
+            color: $white;
+            border-color: $green;
+            @include button-hover($color: $green, $bg_color: $white);
+        }
+        @include modifier ('blue') {
+            background-color: $blue;
+            color: $white;
+            border-color: $blue;
+            @include button-hover($color: $blue, $bg_color: $white);
+        }
+    }
+    @include element ('slider') {
+        $track_height: 6px;
+        $track_color: $grey;
+        $thumb_width: 14px;
+        $thumb_height: 14px;
+        $thumb_radius: 50%;
+        $thumb_color: $white;
+        $thumb_border_color: $grey;
+        @include slider($width: 30px, $height: 130px);
+        &::-moz-range-track {
+            @include track($height: $track_height, $color: $track_color);
+        }
+        &::-moz-range-thumb {
+            @include thumb($width: $thumb_width, $height: $thumb_height, $radius: $thumb_radius, $color: $thumb_color, $border_color: $thumb_border_color);
+        }
+        &::-webkit-slider-thumb {
+            @include thumb($width: $thumb_width, $height: $thumb_height, $radius: $thumb_radius, $color: $thumb_color, $border_color: $thumb_border_color);
+        }
+        &::-webkit-slider-runnable-track {
+            @include track($height: $track_height, $color: $track_color);
+        }
+        &::-ms-thumb {
+            @include thumb($width: $thumb_width, $height: $thumb_height, $radius: $thumb_radius, $color: $thumb_color, $border_color: $thumb_border_color);
+        }
+        &::-ms-track {
+            @include track($height: $track_height, $color: $track_color);
+        }
+        &::-ms-fill-lower {
+            background-color: $grey;
+        }
+        &::-ms-fill-upper {
+            background-color: $grey;
+        }
+        &::-ms-tooltip {
+            display: none;
+        }
+    }
+}

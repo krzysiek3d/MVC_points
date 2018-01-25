@@ -1,0 +1,20 @@
+.align-project {
+    padding: 0 10px;
+    @include element ('header') {
+        position: relative;
+        padding: 16px 0;
+    }
+    @include element ('body') {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 90px);
+        overflow: hidden;
+        border: 1px solid $grey;
+    }
+    @include element ('loading-spinner') {
+        width: 70px;
+        height: 70px;
+        @include center_absolute();
+    }
+    @include element ('footer') {}
+}
